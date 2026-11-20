@@ -1,0 +1,5 @@
+body {
+    font-family: quantico;
+    display: grid;
+    grid-template-columns: auto;
+}

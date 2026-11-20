@@ -1,0 +1,234 @@
+/* We gebruiken hier Cascade layers, wat mogelijke problemen met Specificiteit voorkomt
+   https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers
+   https://css-tricks.com/css-cascade-layers/ */
+
+@layer styleguide {
+
+  /* Schrijf hier de verschillende stijlen, die
+       gedeeld gaan worden door jullie projecten */
+  :root {
+    --color-primary: #feb51e;
+    --color-primary-dark: #d18b0a;
+
+    --color-secondary: #1d194e;
+
+    --color-secondary-light: #47446f;
+    --color-secondary-lighter: #A3A2B7;
+
+    --color-leren-reflecteren-dark: #019da7;
+    --color-leren-reflecteren: #4fbbc2;
+    --color-leren-reflecteren-light: #a7dddf;
+
+    --color-onderzoeken-dark: #d04925;
+    --color-onderzoeken: #f96c4f;
+    --color-onderzoeken-light: #fdb4a5;
+
+    --color-creatief-dark: #9864a0;
+    --color-creatief: #b48eba;
+    --color-creatief-light: #dac7dd;
+
+    --color-organiseren-dark: #8e9700;
+    --color-organiseren: #b0b64c;
+    --color-organiseren-light: #d7d9a7;
+
+    --color-communiceren-dark: #970033;
+    --color-communiceren: #bc364e;
+    --color-communiceren-light: #dd99a6;
+
+
+    --color-leren-ander-dark: #005374;
+    --color-leren-ander: #2f739b;
+    --color-leren-ander-light: #9ab9cd;
+  }
+
+  /* Kleuren */
+  .color-primary {
+    background-color: var(--color-primary);
+  }
+
+  .color-primary-dark {
+    background-color: var(--color-primary-dark);
+  }
+
+  .color-secondary {
+    background-color: var(--color-secondary);
+  }
+
+  .color-secondary-light {
+    background-color: var(--color-secondary-light);
+  }
+
+  .color-secondary-lighter {
+    background-color: var(--color-secondary-lighter);
+  }
+
+  .color-leren-reflecteren-dark {
+    background-color: var(--color-leren-reflecteren-dark);
+  }
+
+  .color-leren-reflecteren {
+    background-color: var(--color-leren-reflecteren);
+  }
+
+  .color-leren-reflecteren-light {
+    background-color: var(--color-leren-reflecteren-light);
+  }
+
+  .color-onderzoeken-dark {
+    background-color: var(--color-onderzoeken-dark);
+  }
+
+  .color-onderzoeken {
+    background-color: var(--color-onderzoeken);
+  }
+
+  .color-onderzoeken-light {
+    background-color: var(--color-onderzoeken-light);
+  }
+
+  .color-creatief-dark {
+    background-color: var(--color-creatief-dark);
+  }
+
+  .color-creatief {
+    background-color: var(--color-creatief);
+  }
+
+  .color-creatief-light {
+    background-color: var(--color-creatief-light);
+  }
+
+  .color-organiseren-dark {
+    background-color: var(--color-organiseren-dark);
+  }
+
+  .color-organiseren {
+    background-color: var(--color-organiseren);
+  }
+
+  .color-organiseren-light {
+    background-color: var(--color-organiseren-light);
+  }
+
+  .color-communiceren-dark {
+    background-color: var(--color-communiceren-dark);
+  }
+
+  .color-communiceren {
+    background-color: var(--color-communiceren);
+  }
+
+  .color-communiceren-light {
+    background-color: var(--color-communiceren-light);
+  }
+
+  .color-leren-ander-dark {
+    background-color: var(--color-leren-ander-dark);
+  }
+
+  .color-leren-ander {
+    background-color: var(--color-leren-ander);
+  }
+
+  .color-leren-ander-light {
+    background-color: var(--color-leren-ander-light);
+  }
+}
+
+
+/* Typografie */
+@font-face {
+  font-family: "Quantico";
+  src: url(../fonts/Quantico-Regular.ttf);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Quantico";
+  src: url(../fonts/Quantico-Bold.ttf);
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Quantico";
+  src: url(../fonts/Quantico-Italic.ttf);
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Quantico";
+  src: url(../fonts/Quantico-BoldItalic.ttf);
+  font-style: italic;
+  font-weight: 700;
+}
+
+body, p {
+  font-family: "Quantico", sans-serif;
+  font-weight: 400;
+}
+
+.quote {
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+}
+
+input, textarea, button {
+  font: inherit;
+}
+
+
+/* Formulier elementen */
+input,
+textarea,
+select {
+  border: 1px solid var(--color-secondary-lighter);
+  border-radius: 0px;
+  padding: 16px;
+  color: var(--color-secondary);
+  background-color: transparent;
+  box-shadow: unset;
+
+  &:focus {
+    border-color: var(--color-secondary);
+    outline: 1px solid var(--color-secondary);
+  }
+
+  &::placeholder {
+    color: var(--color-secondary-lighter);
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+fieldset:has(input[type="radio"], input[type="checkbox"]) {
+  display: flex;
+  gap: 1rem;
+}
+
+label:has(input[type="radio"], input[type="checkbox"]) {
+  background-color: white;
+  color: var(--color-secondary);
+  outline: 1px solid var(--color-secondary);
+  padding: 14px;
+
+  &:has(:is(input[type="radio"], input[type="checkbox"]):checked) {
+    background-color: var(--color-secondary);
+    color: white;
+  }
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="submit"] {
+  border: unset;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
